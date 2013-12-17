@@ -1,5 +1,3 @@
-
-# you probably want to tune these settings
 PassengerHighPerformance on
 PassengerMaxPoolSize 12
 PassengerPoolIdleTime 1500
@@ -9,11 +7,10 @@ RackAutoDetect Off
 RailsAutoDetect Off
 
 Listen 127.0.0.1:18140
-Listen 192.168.100.100:18140
+Listen 192.168.100.101:18140
 
 <VirtualHost *:18140>
-	ServerName puppet.example.com
-#	RackAutoDetect On
+        ServerName puppet.example.com
         DocumentRoot /etc/puppet/rack/public/
         RackBaseURI /
         <Directory /etc/puppet/rack/>
