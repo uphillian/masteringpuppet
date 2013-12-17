@@ -1,0 +1,14 @@
+#!/bin/env ruby
+
+require 'yaml'
+
+# create an empty hash
+@enc = Hash.new
+@enc["classes"] = Hash.new
+@enc["classes"]["base"] = Hash.new
+@enc["parameters"] = Hash.new
+@enc["environment"] = 'production'
+
+puts @enc.to_yaml
+exit(0)
+
