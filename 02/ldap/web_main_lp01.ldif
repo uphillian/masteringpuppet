@@ -1,0 +1,7 @@
+dn: cn=web_main_lp01,ou=production,ou=hosts,dc=example,dc=com
+objectclass: puppetClient
+objectclass: device
+environment: production
+puppetClass: web
+puppetClass: base
+puppetvar:   role='Production Web Server'
