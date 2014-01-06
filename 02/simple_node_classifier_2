@@ -1,17 +1,16 @@
 #!/bin/env python
 # Python ENC
-# receives fqdn as argument
+# receives hostname as argument
 
 import yaml
 import sys
-import re
 
 """output_yaml renders the hash as yaml and exits cleanly"""
 def output_yaml(enc):
   # output the ENC as yaml
   print "---"
   print yaml.dump(enc)
-  sys.exit(0)
+  quit()
 
 # create an empty hash
 enc = {}
@@ -20,40 +19,40 @@ enc["classes"]["base"] = {}
 enc["parameters"] = {}
 
 try:
-  fqdn=sys.argv[1]
+  hostname=sys.argv[1]
 except:
   # need a hostname
   sys.exit(10)
 
 
-# split the fqdn into hostname, environment and domain
-# then split hostname on _
+# split hostname on _
 try:
-  (hostname,environment,domain) = fqdn.split('.',2)
   parts = hostname.split('_')
-  try:
-    role = parts[0]
-    location = parts[1]
-    os = parts[2][0]
-    instance = parts[2][1:]
-
-  except:
-    # hostname doesn't conform
-    # include a class which notifies us of the problem
-    enc["classes"]["hostname_problem"] = hostname
-    output_yaml(enc)
+  role = parts[0]
+  location = parts[1]
+  os = parts[2][0]
+  environment = parts[2][1]
+  instance = parts[2][2:]
 
 except:
-  enc["classes"]["fqdn_problem"] = fqdn
+  # hostname didn't conform to our standard
+  # include a class which notifies us of the problem
+  enc["classes"]["hostname_problem"] = {}
+  enc["classes"]["hostname_problem"]['enc_hostname'] = hostname
   output_yaml(enc)
-  
+  raise SystemExit
+
+
 # map environment from hostname into environment
 environments = {}
-environments['prod'] = 'production'
-environments['np'] = 'nonprod'
-environments['dev'] = 'devel'
-environments['sbx'] = 'sbx'
-enc["environment"] = environments[environment]
+environments['p'] = 'production'
+environments['n'] = 'nonprod'
+environments['d'] = 'devel'
+environments['s'] = 'sandbox'
+try:
+  enc["environment"] = environments[environment]
+except:
+  enc["environment"] = 'undef'
 
 # map role from hostname into role
 enc["classes"][role] = {}
@@ -64,7 +63,6 @@ enc["parameters"]["role"] = role
 enc["parameters"]["location"] = location
 enc["parameters"]["os"] = os
 enc["parameters"]["instance"] = instance
-enc["parameters"]["domain"] = domain
-
 
 output_yaml(enc)
+
