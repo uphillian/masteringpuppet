@@ -1,0 +1,34 @@
+#!/bin/bash
+
+ALLOWED_USERS="samdev git root"
+PROTECTED_BRANCH="production"
+
+user=tuphill
+
+while read oldrev newrev refname
+do
+  branch=
+  continue
+done
+
+if [ -z  ]; then
+ echo "ERROR: Branch undefined"
+ exit 10
+fi
+
+if [ "" != "" ]; then
+  # branch not protected, exit cleanly
+  exit 0
+fi
+
+for allowed in 
+do
+  if [ "" == "" ]; then
+    # user allowed, exit cleanly
+    echo " change for "
+    exit 0
+  fi
+done
+# not an allowed user
+echo "Error: Changes to  must be made by "
+exit 10

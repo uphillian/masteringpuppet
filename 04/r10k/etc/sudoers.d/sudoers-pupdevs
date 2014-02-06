@@ -1,0 +1,5 @@
+Defaults !requiretty
+git ALL = (puppet) NOPASSWD: /usr/bin/git *
+%pupdevs ALL = (puppet) NOPASSWD: /usr/bin/git *
+git ALL = (puppet) NOPASSWD: /var/lib/puppet/.gem/ruby/1.8/bin/r10k
+%pupdevs ALL = (puppet) NOPASSWD: /var/lib/puppet/.gem/ruby/1.8/bin/r10k

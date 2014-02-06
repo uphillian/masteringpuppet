@@ -1,0 +1,41 @@
+#!/bin/bash
+
+PUPPETDIR=/etc/puppet/environments
+REPOHOME=/var/lib/git/puppet.git
+GIT=/usr/bin/git
+umask 0002
+unset GIT_DIR
+
+while read oldrev newrev refname
+do
+  branch=${refname#*\/*\/}
+done
+
+if [ -z $branch ]; then
+ echo "ERROR: Updating $PUPPETDIR"
+ echo "       Branch undefined"
+ exit 10
+fi
+
+# if directory exists, check it is a git repository
+if [ -d "$PUPPETDIR/$branch/.git" ]; then
+  cd $PUPPETDIR/$branch
+  echo "Updating $branch in $PUPPETDIR"
+  sudo -u puppet $GIT pull origin $branch
+  #chmod -R g+w $PUPPETDIR/$branch
+  exit=$?
+elif [ -d "$PUPPETDIR/$branch" ]; then
+  # directory exists but is not in git
+  echo "ERROR: Updating $PUPPETDIR"
+  echo "       $PUPPETDIR/$branch is not a git repository"
+  exit=20
+else
+  # directory does not exist, create
+  cd $PUPPETDIR
+  echo "Creating new branch $branch in $PUPPETDIR"
+  sudo -u puppet $GIT clone --shared -b $branch $REPOHOME $branch
+  #chmod -R g+w $PUPPETDIR/$branch
+  exit=$?
+fi
+
+exit $exit
