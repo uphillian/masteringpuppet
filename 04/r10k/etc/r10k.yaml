@@ -1,0 +1,5 @@
+:cachedir: '/var/cache/r10k'
+:sources:
+ :plops:
+   remote: '/var/lib/git/puppet.git'
+   basedir: '/etc/puppet/environments'
