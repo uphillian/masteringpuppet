@@ -1,0 +1,40 @@
+main_collective = mcollective
+collectives = mcollective
+libdir = /usr/libexec/mcollective
+daemonize = 1
+
+# logging
+logger_type = file
+logfile = /var/log/mcollective.log
+loglevel = info
+logfile = /var/log/mcollective.log
+logfacility = user
+keeplogs = 5
+max_log_size = 2097152
+
+# activemq
+connector = activemq
+plugin.activemq.pool.size = 1
+plugin.activemq.pool.1.host = <%= mcollective_server %>
+plugin.activemq.pool.1.port = 61614
+plugin.activemq.pool.1.user = mcollective
+plugin.activemq.pool.1.password = PacktPubSecret
+plugin.activemq.pool.1.ssl = 1
+plugin.activemq.pool.1.ssl.ca = /var/lib/puppet/ssl/certs/ca.pem
+plugin.activemq.pool.1.ssl.cert = /var/lib/puppet/ssl/certs/<%= @fqdn %>.pem
+plugin.activemq.pool.1.ssl.key = /var/lib/puppet/ssl/private_keys/<%= @fqdn %>.pem
+plugin.activemq.pool.1.ssl.fallback = 0
+
+# SSL security plugin settings:
+securityprovider = ssl
+plugin.ssl_client_cert_dir = /etc/mcollective/ssl/clients
+plugin.ssl_server_private = /etc/mcollective/ssl/mcollective_private.pem
+plugin.ssl_server_public = /etc/mcollective/ssl/mcollective_public.pem
+
+# Facts, identity, and classes:
+identity = <%= @fqdn %>
+factsource = yaml
+plugin.yaml = /etc/mcollective/facts.yaml
+classesfile = /var/lib/puppet/state/classes.txt
+
+registerinterval = 600
