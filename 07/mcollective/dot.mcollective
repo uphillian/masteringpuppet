@@ -1,0 +1,30 @@
+connector = activemq
+direct_addressing = 1
+# ActiveMQ connector settings:
+plugin.activemq.pool.size = 1
+plugin.activemq.pool.1.host = puppet.example.com
+plugin.activemq.pool.1.port = 61614
+plugin.activemq.pool.1.user = mcollective
+plugin.activemq.pool.1.password = PacktPubSecret
+plugin.activemq.pool.1.ssl = 1
+plugin.activemq.pool.1.ssl.ca = /home/thomas/.mcollective.d/credentials/certs/ca.pem
+plugin.activemq.pool.1.ssl.cert = /home/thomas/.mcollective.d/credentials/certs/thomas.pem
+plugin.activemq.pool.1.ssl.key = /home/thomas/.mcollective.d/credentials/private_keys/thomas.pem
+plugin.activemq.pool.1.ssl.fallback = 0
+
+securityprovider = ssl
+
+# SSL plugin settings:
+plugin.ssl_server_public = /home/thomas/.mcollective.d/credentials/certs/mcollective-servers.pem
+plugin.ssl_client_private = /home/thomas/.mcollective.d/credentials/private_keys/thomas.pem
+plugin.ssl_client_public = /home/thomas/.mcollective.d/credentials/certs/thomas.pem
+
+default_discovery_method = mc
+direct_addressing_threshold = 10
+ttl = 60
+color = 1
+rpclimitmethod = first
+libdir = /usr/libexec/mcollective
+logger_type = console
+loglevel = warn
+main_collective = mcollective
