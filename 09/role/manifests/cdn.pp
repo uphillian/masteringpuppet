@@ -1,3 +1,3 @@
 class role::cdn {
-  include profile::nginx::cdn
+  include profile::cdn
 }

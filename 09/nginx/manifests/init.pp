@@ -1,6 +1,6 @@
 class nginx (
   $worker_connections = 1024,
-  $worker_processes = auto,
+  $worker_processes = 1,
   $keepalive_timeout = 60,
   $nginx_version = 'installed',
 ) {
@@ -11,6 +11,7 @@ class nginx (
     owner   => '0',
     group   => '0',
     notify  => Service['nginx'],
+    require => Package['nginx'],
   }
   package {'nginx':
     ensure => $nginx_version,
