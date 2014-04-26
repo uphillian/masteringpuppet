@@ -1,0 +1,10 @@
+#!/bin/bash
+SSL=$(puppet config print ssldir)
+FQDN=$(facter fqdn)
+PUPPET=puppet.example.com
+ENV=production
+exec wget --certificate ${SSL}/certs/${FQDN}.pem \
+          --private-key ${SSL}/private_keys/${FQDN}.pem \
+          --ca-certificate ${SSL}/certs/ca.pem \
+          --header="Accept: yaml" \
+          https://${PUPPET}:8140/$ENV/catalog/${FQDN}
