@@ -1,0 +1,13 @@
+dn: dc=example,dc=com
+objectclass: dcObject
+objectclass: organization
+o: Example
+dc: example
+
+dn: ou=hosts,dc=example,dc=com
+objectclass: organizationalUnit
+ou: hosts
+
+dn: ou=production,ou=hosts,dc=example,dc=com
+objectclass: organizationalUnit
+ou: production

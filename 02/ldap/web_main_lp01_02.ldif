@@ -1,0 +1,4 @@
+dn: cn=web_main_lp01,ou=production,ou=hosts,dc=example,dc=com
+changetype: modify
+add: puppetClass
+puppetClass: base

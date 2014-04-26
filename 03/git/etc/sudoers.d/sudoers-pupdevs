@@ -1,0 +1,3 @@
+Defaults !requiretty
+git ALL = (puppet) NOPASSWD: /usr/bin/git *
+%pupdevs ALL = (puppet) NOPASSWD: /usr/bin/git *

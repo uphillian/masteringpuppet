@@ -1,0 +1,3 @@
+[submodule "puppetdb"]
+    path = puppetdb
+      url = https://github.com/puppetlabs/puppetlabs-puppetdb.git

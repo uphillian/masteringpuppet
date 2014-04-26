@@ -1,0 +1,15 @@
+$ORIGIN example.com.
+$TTL 1D
+@     IN SOA   root hostmaster (
+                        <%= Time.now.gmtime.strftime("%Y%m%d%H") %> ; serial
+                        8H        ; refresh
+                        4H        ; retry
+                        4W        ; expire
+                        1D )      ; minimum
+                NS      ns1
+                MX      10 ns1
+; 
+; just in case someone asks for localhost.example.com
+localhost       A       127.0.0.1
+ns1             A       192.168.122.1
+; exported resources below this point

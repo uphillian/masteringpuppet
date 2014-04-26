@@ -1,0 +1,14 @@
+;
+; reverse pointers for 192.168.122.0 subnet
+;
+$ORIGIN 122.168.192.in-addr.arpa.
+$TTL 1D
+@     IN SOA  dns.example. hostmaster.example. (
+              <%= Time.now.gmtime.strftime("%Y%m%d%H") %> ; serial
+              28800      ; refresh (8 hours)
+              14400      ; retry (4 hours)
+              2419200    ; expire (4 weeks)
+              86400      ; minimum (1 day)
+              )
+              NS      ns.example.
+; exported resources below this point
