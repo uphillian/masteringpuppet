@@ -1,0 +1,4 @@
+---
+welcome: 'Careful, this is a production node'
+classes: - resolver
+resolver::search: 'prod.example.com'
