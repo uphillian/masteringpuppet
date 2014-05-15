@@ -1,7 +1,11 @@
-class example::dns::client {
+class example::dns::client 
+  (
+    $domain = 'example.com',
+    $search = 'prod.example.com example.com'
+  ) {
   # pull settings from hiera, sensible defaults
-  $domain = hiera('dns::domain','example.com')
-  $search = hiera('dns::search','prod.example.com example.com')
+  #  $domain = hiera('dns::domain','example.com')
+  # $search = hiera('dns::search','prod.example.com example.com')
 
   concat {'/etc/resolv.conf':
     mode => 0644,
