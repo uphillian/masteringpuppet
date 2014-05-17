@@ -1,0 +1,5 @@
+---
+welcome: 'Welcome to Example.com'
+classes: - 'base'
+syslog: 'nothing'
+nginx::worker_processes: 2

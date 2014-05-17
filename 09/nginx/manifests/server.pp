@@ -15,4 +15,5 @@ define nginx::server (
     notify  => Service['nginx'],
     require => Package['nginx']
   }
+
 }
