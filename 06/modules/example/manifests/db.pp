@@ -1,4 +1,4 @@
-class example::db ($db) {
+class example::db (String $db) {
   case $db {
     'mysql': {
       $dbpackage = 'mysql-server'
@@ -8,11 +8,14 @@ class example::db ($db) {
       $dbpackage = 'postgresql-server'
       $dbservice = 'postgresql'
     }
+    default: {
+      notify{ 'Unknown DB type': }
+    }
   }
-  package { "$dbpackage": }
-  service { "$dbservice": 
+  package { $dbpackage: }
+  service { $dbservice:
     ensure  => true,
-    enable => true,
-    require => Package["$dbpackage"]
+    enable  => true,
+    require => Package[$dbpackage]
   }
 }
