@@ -1,8 +1,8 @@
 class nginx (
-  $worker_connections = 1024,
-  $worker_processes = 1,
-  $keepalive_timeout = 60,
-  $nginx_version = 'installed',
+  Integer $worker_connections = 1024,
+  Integer $worker_processes = 1,
+  Integer $keepalive_timeout = 60,
+  Enum['installed','absent'] $nginx_version = 'installed',
 ) {
   file {'nginx.conf':
     path    => '/etc/nginx/nginx.conf',
