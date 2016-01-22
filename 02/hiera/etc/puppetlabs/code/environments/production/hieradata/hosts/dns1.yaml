@@ -1,0 +1,3 @@
+---
+classes:
+  - example::dns::server

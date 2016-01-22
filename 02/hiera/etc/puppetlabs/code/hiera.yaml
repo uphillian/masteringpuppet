@@ -1,0 +1,11 @@
+---
+:hierarchy:
+  - "hosts/%{hostname}"
+  - "roles/%{role}"
+  - "%{kernel}/%{os.family}/%{os.release.major}"
+  - "is_virtual/%{is_virtual}"
+  - common
+:backends:
+  - yaml
+:yaml:
+  :datadir:

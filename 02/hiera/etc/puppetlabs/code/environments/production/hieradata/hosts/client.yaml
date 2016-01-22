@@ -1,0 +1,5 @@
+---
+welcome: 'Welcome to our default node'
+classes: 
+  - base
+resolver::search: 'devel.example.com'
