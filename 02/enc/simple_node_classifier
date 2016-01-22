@@ -1,14 +1,12 @@
 #!/bin/env ruby
-
 require 'yaml'
 
-# create an empty hash
+# create an empty hash to contain everything
 @enc = Hash.new
 @enc["classes"] = Hash.new
 @enc["classes"]["base"] = Hash.new
 @enc["parameters"] = Hash.new
 @enc["environment"] = 'production'
-
+#convert the hash to yaml and print
 puts @enc.to_yaml
 exit(0)
-
