@@ -1,4 +1,0 @@
----
-welcome: 'This is a development node, play away'
-classes: - resolver
-resolver::search: 'devel.example.com'

@@ -8,4 +8,4 @@
 :backends:
   - yaml
 :yaml:
-  :datadir: "/etc/puppet/environments/%{::environment}/hieradata"
+  :datadir: "/etc/puppetlabs/code/environments/%{::environment}/hieradata"
