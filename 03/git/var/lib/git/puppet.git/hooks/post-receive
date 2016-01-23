@@ -1,8 +1,8 @@
 #!/bin/bash
 
-PUPPETDIR=/etc/puppet/environments
-REPOHOME=/var/lib/git/puppet.git
-GIT=/usr/bin/git
+PUPPETDIR=/etc/puppetlabs/code/environments
+REPOHOME=/var/lib/git/control.git
+GIT=/bin/git
 umask 0002
 unset GIT_DIR
 

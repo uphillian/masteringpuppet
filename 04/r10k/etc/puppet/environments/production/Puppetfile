@@ -1,6 +1,6 @@
 forge "http://forge.puppetlabs.com"
-mod 'puppetlabs/puppetdb', '3.0.0'
-mod 'puppetlabs/stdlib', '3.2.0'
+mod 'puppetlabs/puppetdb', '5.0.0'
+mod 'puppetlabs/stdlib', '4.9.0'
 mod 'puppetlabs/concat'
 mod 'puppetlabs/firewall'
 mod 'puppetlabs/lvm'

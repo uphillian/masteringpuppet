@@ -1,0 +1,13 @@
+#!/bin/bash
+r10k=/usr/local/bin/r10k
+
+while read oldrev newrev refname
+do
+  branch=${refname#*\/*\/}
+  # let r10k take care of everything, all we need is the branch name
+  if [ -z "$branch" ]; then
+    echo "ERROR: Branch undefined"
+    exit 10
+  fi
+  exec sudo -u puppet $r10k deploy environment $branch -p
+done

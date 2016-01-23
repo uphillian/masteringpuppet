@@ -3,7 +3,7 @@
 ALLOWED_USERS="samdev git root"
 PROTECTED_BRANCH="production"
 
-user=tuphill
+user=$(whoami)
 
 while read oldrev newrev refname
 do
