@@ -1,0 +1,18 @@
+module-name
+├── files
+├── lib
+│   ├── augeas
+│   │   └── lenses
+│   ├── facter
+│   └── puppet
+│       ├── parser
+│       │   └── functions
+│       ├── provider
+│       │   └── provider-name
+│       │       (exec, file, package, etc...)
+│       └── type
+├── manifests
+│   └── init.pp
+└── templates
+
+
